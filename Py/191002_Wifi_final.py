@@ -163,7 +163,7 @@ plt.rcParams.update({'font.size': 10})
 fig_RSSI, (ax1, ax2) = plt.subplots(1, 2, tight_layout=True, figsize=(10, 3))
 
 ax1.hist(WAPsmelted_wo100_train['value'], bins = 105)
-ax1.set_title('Frequency of RSSI - Train')
+ax1.set_title('Frequency of RSSI - Training')
 ax1.set_xlabel('Signal strength (RSSI) [dbm]')
 ax1.set_ylabel('Frequency')
 
@@ -179,7 +179,7 @@ plt.rcParams.update({'font.size': 10})
 fig_det, (ax1, ax2) = plt.subplots(1, 2, tight_layout=True, figsize=(10, 3))
 
 ax1.hist(wifi_train.iloc[:,0:520].gt(0).sum(axis=1), bins = (wifi_train.iloc[:,0:520].gt(0).sum(axis=1)).max())
-ax1.set_title('WAP detection per observation - Train')
+ax1.set_title('WAP detection per observation - Training')
 ax1.set_xlabel('Count of WAPs detected')
 ax1.set_ylabel('Frequency')
 
@@ -187,7 +187,8 @@ ax2.hist(wifi_val.iloc[:,0:520].gt(0).sum(axis=1), bins = (wifi_val.iloc[:,0:520
 ax2.set_title('WAP detection per observation - Validation')
 ax2.set_xlabel('Count of WAPs detected')
 ax2.set_ylabel('Frequency')
-
+plt.interactive(False)
+plt.show()
 
 ## BAR - USERID
 bar = plt.figure(2)
@@ -219,7 +220,7 @@ def draw_histograms(df, n_rows, n_cols):
 # Create subplot of histograms - training
 x = wifi_train['PHONEID'].value_counts().reset_index()
 plt.bar(x = x['index'], height = x.loc[:,'PHONEID'])
-plt.title('Frequency of PHONEID used - Training')
+plt.title('Frequency of PHONEID used - Train')
 plt.xlabel('PHONEID')
 plt.ylabel('Frequency')
 draw_histograms(wifi_train, 4, 4)
