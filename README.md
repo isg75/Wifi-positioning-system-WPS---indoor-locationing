@@ -43,7 +43,7 @@ The project follows an iterative approach to understand the data and select the 
 
 - 'Baseline' model: MVP model without pre-processing and hyperparameter tuning
 - 'WAPs selection': Only those WAPs (columns) used that are at least once detected in train and validation set
-- 'Scaling': Testing different scaling functions --> (Vector) normalization by row addressing different detection behaviour of phones and possible user influence
+- 'Scaling': Testing different scaling functions --> (Vector-) normalization by row addressing different detection behaviour of phones and possible user influence
 - 'Cascade': Using certain predicted variables (e.g. BUILDINGID which is not available in test) for prediction of remaining variables
 - 'WAP-Profiling': Identify distinctive WAP-profiles (e.g. 3 WAPS with highest signal intensity) for each reference point 
 - 'Enrichment': Transfer those positions from validation to train that are not covered within train
