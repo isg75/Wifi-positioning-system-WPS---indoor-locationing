@@ -38,6 +38,7 @@ The project follows an iterative approach to understand the data and select the 
 - Identify and address weak-spots of each model
   
 **5. Applying selected models on 'Test'-set for submission**  
+- If necessary, retransform predicted coordinates (LONGITUDE, LATITUDE) to original scale
   
 ## Overview of selected iterations
 
