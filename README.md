@@ -12,6 +12,7 @@ The data is separated into three datasets varying in the way of data collection 
 * 'Validation': Is considered to validate the models trained with unseen observations. Covers over 1k observations but provides no additional columns. Observations in this dataset have been taken randomly throughout the campus to simulate real-world data. Furthermore, it has to be mentioned that the validation set contains several observations taken in areas not covered by the trainset. 
 * 'Test': This dataset is not available through training and validation phase since it is considered to test the best models identified before. Likewise, the testset includes only real-world data to evaluate its positioning accuracy in a real-world setup.  
   
+  
 ## Technical approach
 The project follows an iterative approach to understand the data and select the best performing model using different pre-processing techniques, algorithms, and trainset configurations. 
   
@@ -39,6 +40,7 @@ The project follows an iterative approach to understand the data and select the 
   
 **5. Applying selected models on 'Test'-set for submission**  
 - If necessary, retransform predicted coordinates (LONGITUDE, LATITUDE) to original scale
+  
   
 ## Overview of selected iterations
 
