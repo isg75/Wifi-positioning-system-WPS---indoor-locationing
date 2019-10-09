@@ -48,5 +48,3 @@ The project follows an iterative approach to understand the data and select the 
 - 'WAP-Profiling': Identify distinctive WAP-profiles (e.g. 3 WAPS with highest signal intensity) for each reference point 
 - 'Enrichment': Transfer those positions from validation to train that are not covered within train
 - 'Hyperparameter': Tune hyperparameter of final model selection
-
-  
