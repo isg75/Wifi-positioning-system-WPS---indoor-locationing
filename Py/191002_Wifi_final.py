@@ -175,6 +175,7 @@ ax2.set_ylabel('Frequency')
 
 ## Histgram: Frequency of number of WAPs detected
 plt.rcParams.update({'font.size': 10})
+
 fig_det, (ax1, ax2) = plt.subplots(1, 2, tight_layout=True, figsize=(10, 3))
 
 ax1.hist(wifi_train.iloc[:,0:520].gt(0).sum(axis=1), bins = (wifi_train.iloc[:,0:520].gt(0).sum(axis=1)).max())
@@ -187,12 +188,16 @@ ax2.set_title('WAP detection per observation - Validation')
 ax2.set_xlabel('Count of WAPs detected')
 ax2.set_ylabel('Frequency')
 
-## Histogram - USERID
+
+## BAR - USERID
+bar = plt.figure(2)
 plt.bar(x = wifi_train['USERID'].value_counts().index, height = wifi_train['USERID'].value_counts())
 plt.xticks(list(range(0,19)))
 plt.title('Frequency of USERID - Training')
 plt.xlabel('USERID')
 plt.ylabel('Frequency')
+plt.interactive(False)
+plt.show()
 
 
 ## Histogram of PHONEID
@@ -299,6 +304,7 @@ duplicates_col_train.columns = ['duplicates']
 duplicates_col_train = duplicates_col_train.loc[duplicates_col_train['duplicates'] == True]
 len(duplicates_col_train.index)                                   # 8 empty columns
 
+
 ## Find undetected WAPs in validation set
 duplicates_col_val = pd.DataFrame(wifi_val_new.sum(axis = 0) == 0)
 duplicates_col_val.columns = ['duplicates']
@@ -356,6 +362,7 @@ wifi_val_unique['PHONEID'] = wifi_val_unique['PHONEID'].astype('category')
 
 
 ### Data splitting
+
 ## Training set
 # Features (X_train)
 X_train = wifi_train_unique.filter(like = 'WAP', axis = 1)
@@ -531,7 +538,6 @@ X_TEST_normObs = pd.DataFrame(X_TEST_normObs, index = testData_unique.index, col
 
 
 
-
 # =============================================================================
 #### Prediction
 # =============================================================================
@@ -539,6 +545,7 @@ X_TEST_normObs = pd.DataFrame(X_TEST_normObs, index = testData_unique.index, col
 ## Predict building
 pred_TESTbuild_kNN = modelkNN_build.predict(X_TEST_normObs)
 pred_TESTbuild_RF = modelkNN_build.predict(X_TEST_normObs)
+
 
 ## Compare prediction of building and create new df with building
 X_TEST_normObs_casckNN = pd.concat([X_TEST_normObs, pd.Series(pred_TESTbuild_kNN)], axis = 1)
@@ -574,7 +581,6 @@ fig = px.scatter_3d(Prediction_TEST_kNN, x='LONGITUDE', y='LATITUDE', z='FLOOR',
                     size_max = 10, opacity = 0.7)
 fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
 plot(fig)
-
 
 
 
